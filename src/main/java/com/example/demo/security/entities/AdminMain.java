@@ -1,28 +1,28 @@
 package com.example.demo.security.entities;
 
+import com.example.demo.security.enums.RoleName;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class UserMain implements UserDetails {
+public class AdminMain implements UserDetails {
     private String email;
     private String password;
     private Collection<? extends GrantedAuthority> grantedAuthorities;
 
-    public UserMain(String email, Collection<? extends GrantedAuthority> grantedAuthorities) {
+    public AdminMain(String email, Collection<? extends GrantedAuthority> grantedAuthorities) {
         this.email = email;
         this.grantedAuthorities = grantedAuthorities;
     }
 
-    public static UserMain build(Usuario user) {
+    public static AdminMain build(Administrador user) {
         List<GrantedAuthority> grantedAuthorities =
-                Collections.singletonList(new SimpleGrantedAuthority(user.getRole().getRoleName().name()));
-        return new UserMain(user.getEmail(), grantedAuthorities);
+                Collections.singletonList(new SimpleGrantedAuthority(RoleName.ROLE_ADMIN.name()));
+        return new AdminMain(user.getEmail(), grantedAuthorities);
     }
 
     @Override

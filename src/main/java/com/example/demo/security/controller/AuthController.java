@@ -1,15 +1,10 @@
 package com.example.demo.security.controller;
 
-import com.amazonaws.services.cognitoidp.model.NotAuthorizedException;
-import com.amazonaws.services.cognitoidp.model.UserNotConfirmedException;
-import com.amazonaws.services.cognitoidp.model.UsernameExistsException;
-import com.example.demo.security.dtos.AuthResponseDto;
-import com.example.demo.security.dtos.ResponseMessageDto;
-import com.example.demo.security.dtos.SignInDto;
-import com.example.demo.security.dtos.SignUpDto;
-import com.example.demo.security.entities.Usuario;
+import com.amazonaws.services.cognitoidp.model.*;
+import com.example.demo.security.dtos.*;
+import com.example.demo.security.entities.Administrador;
 import com.example.demo.security.services.UserDetailsServiceImpl;
-import com.example.demo.security.services.UsuarioService;
+import com.example.demo.security.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,27 +23,25 @@ import java.util.Optional;
 @RequestMapping("/auth")
 public class AuthController {
     @Autowired
-    private UsuarioService usuarioService;
+    private UserService userService;
 
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
     @PostMapping("/sign-up")
-    public ResponseEntity<ResponseMessageDto> signUpUser(@RequestBody @Valid SignUpDto signUpDto, BindingResult bindingResult) {
+    public ResponseEntity<ResponseMessageDto> signUpUser(@RequestBody @Valid UsuarioDto signUpDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new ResponseMessageDto(bindingResult.getFieldError().getDefaultMessage()), HttpStatus.BAD_REQUEST);
         }
         try {
-            usuarioService.signUpUsuario(signUpDto);
+            userService.signUpUsuario(signUpDto);
             return ResponseEntity.ok(new ResponseMessageDto("Se ha registrado el usuario con éxito"));
         } catch (UsernameExistsException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new ResponseMessageDto("El usuario ya existe. Por favor, intenta con otro correo o inicia sesión."));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new ResponseMessageDto("Ocurrió un error al registrar el usuario"));
         }
     }
+
 
     @PostMapping("/sign-in")
     public ResponseEntity<AuthResponseDto> signInUser(@RequestBody @Valid SignInDto signInDto, BindingResult bindingResult) {
@@ -56,10 +49,9 @@ public class AuthController {
             return new ResponseEntity<>(new AuthResponseDto(null, null, bindingResult.getFieldError().getDefaultMessage()), HttpStatus.BAD_REQUEST);
         }
         try {
-        String accessToken = usuarioService.singInUser(signInDto);
+        String accessToken = userService.singInUser(signInDto);
         UserDetails userDetails = userDetailsService.loadUserByUsername(signInDto.getEmail());
 
-        // Obtener el único rol del usuario
         String role = userDetails.getAuthorities().stream()
                 .findFirst()
                 .map(GrantedAuthority::getAuthority)
@@ -85,13 +77,45 @@ public class AuthController {
         }
         }
 
-
-    @GetMapping("/user-details")
-    public Optional<Usuario> getUserDetails() {
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String email = userDetails.getUsername();
-        return usuarioService.getUsuarioByEmail(email);
+    @PostMapping("/sign-out")
+    public ResponseEntity<?> signOut(@RequestHeader("Authorization") String accessToken) {
+        userService.signOutUser(accessToken);
+        return ResponseEntity.ok(new ResponseMessageDto("Cierre de sesión exitoso"));
     }
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<?> forgotPassword(@RequestBody ForgotPasswordDto forgotPasswordDto) {
+        boolean isEmailRegistered = userService.isEmailRegistered(forgotPasswordDto.getEmail());
+
+        if (!isEmailRegistered) {
+            return new ResponseEntity<>(new ResponseMessageDto("El correo electrónico no está registrado."), HttpStatus.BAD_REQUEST);
+        }
+        try {
+            userService.forgotPassword(forgotPasswordDto);
+            return ResponseEntity.ok(new ResponseMessageDto("Código de recuperación enviado"));
+        } catch (LimitExceededException ex) {
+        return new ResponseEntity<>(new ResponseMessageDto("Has excedido el número de intentos permitidos. Por favor, intenta más tarde."), HttpStatus.TOO_MANY_REQUESTS);
+        }
+
+    }
+
+    @PostMapping("/confirm-forgotpassword")
+    public ResponseEntity<?> confirmForgotPassword(@RequestBody ConfirmForgotPasswordDto confirmForgotPasswordDto) {
+        try {
+            userService.confirmForgotPassword(confirmForgotPasswordDto);
+            return ResponseEntity.ok("Contraseña restablecida exitosamente");
+        } catch (LimitExceededException e) {
+            return new ResponseEntity<>(new ResponseMessageDto("Has excedido el límite de intentos. Intenta nuevamente después de un tiempo."), HttpStatus.BAD_REQUEST);
+        } catch (ExpiredCodeException e) {
+            return new ResponseEntity<>(new ResponseMessageDto("El código de verificación proporcionado ha expirado. Solicita un nuevo código."), HttpStatus.BAD_REQUEST);
+        } catch (CodeMismatchException e) {
+            return new ResponseEntity<>(new ResponseMessageDto("El código de verificación proporcionado no es válido. Intenta nuevamente."), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(new ResponseMessageDto("Hubo un error al intentar procesar tu solicitud. Intenta nuevamente."), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 
 }

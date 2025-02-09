@@ -49,7 +49,7 @@ public class MainSecurity {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/sign-up", "/auth/sign-in").permitAll()
+                        .requestMatchers("/auth/sign-up", "/auth/sign-in","/auth/forgot-password","/auth/confirm-forgotpassword").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(exceptionHandling ->

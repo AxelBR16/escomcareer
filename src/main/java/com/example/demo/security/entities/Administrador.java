@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Usuario {
+public class Administrador {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -20,15 +20,11 @@ public class Usuario {
     private String nombre;
 
     @NotEmpty(message = "El apellido es obligatorio")
-    @Column(name = "apellido", nullable = false, length = 100) // Similar al anterior, con las mismas restricciones.
+    @Column(name = "apellido", nullable = false, length = 100)
     private String apellido;
 
     @NotEmpty(message = "El email es obligatorio")
     @Column(name = "email", nullable = false, unique = true, length = 150) // Columna de email, que debe ser única y con un tamaño máximo de 150 caracteres.
     private String email;
-
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "role_id")
-    private Role role;
 
 }
