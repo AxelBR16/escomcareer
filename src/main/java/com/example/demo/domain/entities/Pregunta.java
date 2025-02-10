@@ -1,5 +1,6 @@
 package com.example.demo.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -7,8 +8,7 @@ import lombok.Data;
 @Entity
 public class Pregunta {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @Column(nullable = false)
     private String texto;
@@ -17,9 +17,12 @@ public class Pregunta {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "inventario_id", nullable = false)
+    @JsonBackReference
     private Inventario inventario;
 
     @ManyToOne
     @JoinColumn(name = "escala_id", nullable = false)
+    @JsonBackReference
     private Escala escala;
+
 }

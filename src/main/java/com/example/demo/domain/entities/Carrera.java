@@ -33,4 +33,11 @@ public class Carrera {
     @JsonManagedReference
     @OneToMany(mappedBy = "carrera", cascade = CascadeType.ALL)
     private List<Egresado> egresados;
+
+        // 🔹 Constructor sin 'id' para facilitar la creación de objetos
+        public Carrera(String nombre, String descripcion, String imagenUrl) {
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.imagenUrl = imagenUrl;
+        }
 }

@@ -1,5 +1,7 @@
 package com.example.demo.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,9 +17,11 @@ public class Escala {
 
     @Column(nullable = false)
     private String nombre;
+
     @Column(nullable = false)
     private String descripcion;
 
     @OneToMany(mappedBy = "escala", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Pregunta> preguntas;
 }
