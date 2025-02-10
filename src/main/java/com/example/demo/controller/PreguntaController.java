@@ -18,7 +18,6 @@ public class PreguntaController {
 
     @GetMapping("/inventario/{inventarioId}")
     public List<Pregunta> obtenerPreguntasPorInventario(@PathVariable Long inventarioId) {
-        // Aquí deberías obtener el objeto Inventario correspondiente al id
         Inventario inventario = new Inventario();
         inventario.setId(inventarioId);
         return preguntaService.obtenerPreguntasPorInventario(inventario);
