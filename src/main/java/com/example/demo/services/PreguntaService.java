@@ -6,5 +6,5 @@ import com.example.demo.domain.entities.Pregunta;
 import java.util.List;
 
 public interface PreguntaService {
-    public List<Pregunta> obtenerPreguntasPorInventario(Inventario inventario);
+    List<Pregunta> obtenerPreguntasPorInventario(Inventario inventario);
 }
