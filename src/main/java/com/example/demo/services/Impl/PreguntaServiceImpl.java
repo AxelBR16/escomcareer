@@ -17,7 +17,7 @@ public class PreguntaServiceImpl implements PreguntaService {
     private PreguntaRepository preguntaRepository;
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public List<Pregunta> obtenerPreguntasPorInventario(Inventario inventario) {
         return preguntaRepository.findByInventario(inventario);
     }
