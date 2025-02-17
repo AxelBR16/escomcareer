@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AwsCognitoProviderConfig {
-    @Value(value = "${aws.access.key}")
+    @Value(value = "AKIA2NK3X3UBEE4RM4OA")
     private String accessKeyId;
 
-    @Value(value = "${aws.secret.key}")
+    @Value(value = "MfHGZGXn6JsK0DwkrYziVm4XodIK7bCp8g4kqj60")
     private String secretAccessKey;
 
     @Bean

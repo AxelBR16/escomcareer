@@ -1,39 +1,30 @@
 package com.example.demo.security.services;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
+import com.amazonaws.services.cognitoidp.model.AdminGetUserRequest;
+import com.amazonaws.services.cognitoidp.model.AdminGetUserResult;
 import org.springframework.stereotype.Service;
-import software.amazon.awssdk.regions.Region;
-
-import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
-import software.amazon.awssdk.services.cognitoidentityprovider.model.AdminGetUserRequest;
-import software.amazon.awssdk.services.cognitoidentityprovider.model.AdminGetUserResponse;
-import software.amazon.awssdk.services.cognitoidentityprovider.model.UserType;
 
 @Service
 public class CognitoService {
-    private final CognitoIdentityProviderClient cognitoClient;
+    private final AWSCognitoIdentityProvider cognitoClient;
+    private final String userPoolId = "us-east-1_FgnMQXp8L";
 
-    @Value(value = "us-east-1_FgnMQXp8L")
-    private String userPoolId;
-
-
-    public CognitoService() {
-        this.cognitoClient = CognitoIdentityProviderClient.builder()
-                .build();
+    public CognitoService(AWSCognitoIdentityProvider cognitoClient) {
+        this.cognitoClient = cognitoClient;
     }
+
     public String getUserEmail(String username) {
-        AdminGetUserRequest request = AdminGetUserRequest.builder()
-                .userPoolId(userPoolId)
-                .username(username)
-                .build();
+        AdminGetUserRequest request = new AdminGetUserRequest()
+                .withUserPoolId(userPoolId)
+                .withUsername(username);
 
-        AdminGetUserResponse response = cognitoClient.adminGetUser(request);
+        AdminGetUserResult response = cognitoClient.adminGetUser(request);
 
-        return response.userAttributes().stream()
-                .filter(attr -> attr.name().equals("email"))
-                .map(attr -> attr.value())
+        return response.getUserAttributes().stream()
+                .filter(attr -> attr.getName().equals("email"))
+                .map(attr -> attr.getValue())
                 .findFirst()
                 .orElse(null);
     }
 }
-
