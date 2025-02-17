@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PreguntaService {
     List<Pregunta> obtenerPreguntasPorInventario(Inventario inventario);
+    Pregunta obtenerPreguntaPorId(String id);
 }

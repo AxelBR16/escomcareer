@@ -10,5 +10,6 @@ import java.util.List;
 public interface PreguntaRepository extends JpaRepository<Pregunta, String> {
     @Query("SELECT p FROM Pregunta p WHERE p.inventario = :inventario")
     List<Pregunta> findByInventario(Inventario inventario);
+
 }
 

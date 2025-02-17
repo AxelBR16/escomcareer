@@ -4,11 +4,13 @@ import com.example.demo.domain.entities.Inventario;
 import com.example.demo.domain.entities.Pregunta;
 import com.example.demo.domain.repositories.PreguntaRepository;
 import com.example.demo.services.PreguntaService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PreguntaServiceImpl implements PreguntaService {
@@ -19,6 +21,20 @@ public class PreguntaServiceImpl implements PreguntaService {
     @Override
     @Transactional
     public List<Pregunta> obtenerPreguntasPorInventario(Inventario inventario) {
-        return preguntaRepository.findByInventario(inventario);
+        if (inventario == null || inventario.getId() == null) {
+            throw new IllegalArgumentException("El inventario proporcionado es nulo o no tiene un ID válido.");
+        }
+
+        return Optional.ofNullable(preguntaRepository.findByInventario(inventario))
+                .filter(lista -> !lista.isEmpty())
+                .orElseThrow(() -> new EntityNotFoundException("No se encontraron preguntas para el inventario con ID: " + inventario.getId()));
     }
+
+    @Override
+    public Pregunta obtenerPreguntaPorId(String id) {
+        return preguntaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Pregunta no encontrada con ID: " + id));
+    }
+
+
 }

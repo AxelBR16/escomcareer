@@ -1,11 +1,15 @@
 package com.example.demo.security.entities;
 
+import com.example.demo.domain.entities.Respuesta;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -26,4 +30,9 @@ public class Aspirante {
     @NotEmpty(message = "El email es obligatorio")
     @Column(name = "email", nullable = false, unique = true, length = 150) // Columna de email, que debe ser única y con un tamaño máximo de 150 caracteres.
     private String email;
+
+    @OneToMany(mappedBy = "aspirante", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Respuesta> respuestas;
+
 }
