@@ -31,6 +31,7 @@ public class PreguntaServiceImpl implements PreguntaService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Pregunta obtenerPreguntaPorId(String id) {
         return preguntaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pregunta no encontrada con ID: " + id));

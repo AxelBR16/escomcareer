@@ -24,7 +24,6 @@ public class PreguntaController {
         Inventario inventario = new Inventario();
         inventario.setId(inventarioId);
         return preguntaService.obtenerPreguntasPorInventario(inventario);
-
     }
     @GetMapping("/{id}")
     public ResponseEntity<?> obtenerPregunta(@PathVariable String id) {
