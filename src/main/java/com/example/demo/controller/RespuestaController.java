@@ -29,15 +29,15 @@ public class RespuestaController {
         return ResponseEntity.ok(nuevaRespuesta);
     }
 
-    @PostMapping("/obtenerPorAspirante")
-    public ResponseEntity<?> obtenerRespuestasPorAspirante(@RequestBody ObtenerRespuestasDTO request) {
+    @GetMapping("/obtenerPorAspirante/{email}")
+    public ResponseEntity<?> obtenerRespuestasPorAspirante(@PathVariable String email) {
         try {
-            List<Respuesta> respuestas = respuestaService.obtenerRespuestasPorAspirante(request.getEmail());
+            List<Respuesta> respuestas = respuestaService.obtenerRespuestasPorAspirante(email);
 
             // Verificar si el aspirante tiene respuestas
             if (respuestas.isEmpty()) {
                 ResponseMessageDto errorMessage = new ResponseMessageDto(
-                        "El aspirante con el correo " + request.getEmail() + " no tiene respuestas registradas."
+                        "El aspirante con el correo " + email + " no tiene respuestas registradas."
                 );
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
             }
@@ -56,7 +56,7 @@ public class RespuestaController {
 
         } catch (RuntimeException e) {
             ResponseMessageDto errorMessage = new ResponseMessageDto(
-                    "Se produjo un error inesperado al procesar las respuestas para el aspirante con correo " + request.getEmail() + "."
+                    "Se produjo un error inesperado al procesar las respuestas para el aspirante con correo " + email + "."
             );
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
         }
