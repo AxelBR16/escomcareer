@@ -164,5 +164,4 @@ public class UserService {
                 .withPassword(confirmForgotPasswordDto.getPassword());
         awsCognitoIdentityProvider.confirmForgotPassword(confirmForgotPasswordRequest);
     }
-
 }

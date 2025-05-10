@@ -1,7 +1,6 @@
 package com.example.demo.services.Impl;
 
 import com.example.demo.domain.dto.GuardarRespuestaDTO;
-import com.example.demo.domain.dto.RespuestaDTO;
 import com.example.demo.domain.entities.Pregunta;
 import com.example.demo.domain.entities.Respuesta;
 import com.example.demo.domain.repositories.PreguntaRepository;
@@ -12,9 +11,7 @@ import com.example.demo.services.RespuestaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class RespuestaServiceImp implements RespuestaService {
@@ -66,6 +63,48 @@ public class RespuestaServiceImp implements RespuestaService {
 
         return respuestas;
     }
+
+    @Override
+    public Map<String, String> obtenerRespuestasPorAspiranteEInventario(String email, String inventario) {
+        List<Respuesta> respuestas = obtenerRespuestasPorAspirante(email);
+
+        if (respuestas.isEmpty()) {
+            throw new NoSuchElementException("El aspirante con el correo " + email + " no tiene respuestas registradas.");
+        }
+
+        Map<String, String> respuestasFiltradas = new LinkedHashMap<>();
+
+        for (Respuesta respuesta : respuestas) {
+            String idPregunta = respuesta.getPregunta().getId(); // Ej: "inv1-001"
+            if (idPregunta.startsWith(inventario)) {
+                respuestasFiltradas.put(idPregunta, String.valueOf(respuesta.getValor()));
+            }
+        }
+
+        if (respuestasFiltradas.isEmpty()) {
+            throw new NoSuchElementException("No hay respuestas para el inventario " + inventario);
+        }
+
+        return respuestasFiltradas;
+    }
+
+
+
+    @Override
+    public String obtenerRespuestaConIdMasAltoPorInventario(String email, String inventario) {
+        List<Respuesta> respuestas = obtenerRespuestasPorAspirante(email);
+
+        return respuestas.stream()
+                .filter(r -> r.getPregunta().getId().startsWith(inventario + "-"))
+                .map(r -> {
+                    String[] partes = r.getPregunta().getId().split("-");
+                    return partes.length > 1 ? partes[1] : null;
+                })
+                .filter(Objects::nonNull)
+                .max(Comparator.comparingInt(Integer::parseInt))
+                .orElse(null);
+    }
+
 
 
 }

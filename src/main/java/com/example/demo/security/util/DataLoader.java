@@ -5,7 +5,7 @@ import com.example.demo.domain.entities.Carrera;
 import com.example.demo.domain.repositories.CarreraRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-/*
+
 import java.util.List;
 
 @Component
@@ -29,4 +29,4 @@ public class DataLoader implements CommandLineRunner {
         }
 
     }
-}*/
+}
