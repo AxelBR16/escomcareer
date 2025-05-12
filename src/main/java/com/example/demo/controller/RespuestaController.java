@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.domain.dto.GuardarRespuestaDTO;
 import com.example.demo.domain.dto.ObtenerRespuestasDTO;
+import com.example.demo.domain.dto.RespuestaDTO;
 import com.example.demo.domain.entities.Respuesta;
 import com.example.demo.security.dtos.ResponseMessageDto;
 import com.example.demo.services.RespuestaService;
@@ -69,5 +70,21 @@ public class RespuestaController {
         }
     }
 
+
+    @GetMapping("/por-escala-y-email")
+    public ResponseEntity<List<RespuestaDTO>> obtenerRespuestasPorEscalaYCorreo(
+            @RequestParam Long escalaId,
+            @RequestParam String email) {
+        List<RespuestaDTO> respuestas = respuestaService.obtenerRespuestasPorEscalaYCorreo(escalaId, email);
+        return ResponseEntity.ok(respuestas);
+    }
+
+    @GetMapping("/suma-por-escala-y-email")
+    public ResponseEntity<Integer> obtenerSumaValores(
+            @RequestParam Long escalaId,
+            @RequestParam String email) {
+        Integer suma = respuestaService.obtenerSumaValoresPorEscalaYCorreo(escalaId, email);
+        return ResponseEntity.ok(suma != null ? suma : 0);
+    }
 
 }
