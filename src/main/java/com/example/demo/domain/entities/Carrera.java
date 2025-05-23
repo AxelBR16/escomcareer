@@ -39,4 +39,9 @@ public class Carrera {
             this.descripcion = descripcion;
             this.imagenUrl = imagenUrl;
         }
+    @JsonManagedReference
+    @OneToMany(mappedBy = "carrera", cascade = CascadeType.ALL)
+    private List<Materia> materias;
+
+
 }

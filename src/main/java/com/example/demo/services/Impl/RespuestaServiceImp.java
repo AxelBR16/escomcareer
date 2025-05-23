@@ -133,11 +133,9 @@ public class RespuestaServiceImp implements RespuestaService {
         var aspirante = aspiranteRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Aspirante no encontrado"));
 
-        // Buscar escala
         var escala = escalaRepository.findById(escalaId)
                 .orElseThrow(() -> new RuntimeException("Escala no encontrada"));
 
-        // Guardar resultado
         Resultado resultado = new Resultado();
         resultado.setAspirante(aspirante);
         resultado.setEscala(escala);
@@ -160,7 +158,6 @@ public class RespuestaServiceImp implements RespuestaService {
             if (suma == null) suma = 0;
 
 
-            // Guardar el resultado (opcional: evitar duplicados si ya existe)
             Resultado resultado = new Resultado();
             resultado.setAspirante(aspirante);
             resultado.setEscala(escala);
@@ -173,8 +170,6 @@ public class RespuestaServiceImp implements RespuestaService {
     public void calcularYGuardarResultadoPorInventario(String emailAspirante, String inventario) {
         Aspirante aspirante = aspiranteRepository.findByEmail(emailAspirante)
                 .orElseThrow(() -> new RuntimeException("Aspirante no encontrado"));
-
-        // Determinar rango de escalas según inventario
         int inicioEscala, finEscala;
 
         switch (inventario.toLowerCase()) {
@@ -184,22 +179,22 @@ public class RespuestaServiceImp implements RespuestaService {
                 break;
             case "inv2":
                 inicioEscala = 13;
-                finEscala = 26;
+                finEscala = 25;
+                break;
+            case "inv3":
+                inicioEscala = 26;
+                finEscala = 31;
                 break;
             default:
                 throw new RuntimeException("Inventario no válido: " + inventario);
         }
-
-        // Por cada escala en el rango, sumar respuestas y guardar si no existe resultado aún
         for (int escalaId = inicioEscala; escalaId <= finEscala; escalaId++) {
             Escala escala = escalaRepository.findById((long) escalaId)
                     .orElseThrow(() -> new RuntimeException("Escala no encontrada con ID "));
 
-            // Verificar si ya existe resultado para esta escala y aspirante
             boolean yaExiste = resultadoRepository.existsByAspiranteAndEscala(aspirante, escala);
-            if (yaExiste) continue; // Saltar si ya fue calculado
+            if (yaExiste) continue;
 
-            // Obtener todas las respuestas del aspirante para preguntas de esta escala
             List<Respuesta> respuestas = respuestaRepository.findByAspiranteAndPregunta_Escala_Id(aspirante, escalaId);
 
             int puntaje = respuestas.stream().mapToInt(Respuesta::getValor).sum();
