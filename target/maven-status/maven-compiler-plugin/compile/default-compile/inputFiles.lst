@@ -1,12 +1,15 @@
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\config\AwsCognitoProviderConfig.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\MateriaController.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\PreguntaController.java
+C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\ProyectoController.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\RespuestaController.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\ResultadoController.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\Demo2Application.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\GuardarRespuestaDTO.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\MateriaDTO.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ObtenerRespuestasDTO.java
+C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ProyectoConUsuarioDTO.java
+C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ProyectoDTO.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\RespuestaDTO.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ResultadoResumenDTO.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\Carrera.java
@@ -21,6 +24,7 @@ C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\EscalaRepository.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\MateriaRepository.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\PreguntaRepository.java
+C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\ProyectoRepository.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\RespuestaRepository.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\ResultadoRepository.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\controller\AuthController.java
@@ -54,7 +58,9 @@ C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\securi
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\util\DataLoader.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\Impl\MateriaServiceImpl.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\Impl\PreguntaServiceImpl.java
+C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\Impl\ProyectoServiceImpl.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\Impl\RespuestaServiceImp.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\MateriaService.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\PreguntaService.java
+C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\ProyectoService.java
 C:\Users\AN515-57\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\RespuestaService.java
