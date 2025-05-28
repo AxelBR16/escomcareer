@@ -84,4 +84,32 @@ public class ProyectoServiceImpl implements ProyectoService {
         return proyectoRepository.findProyectosPorCarreraConUsuario(carreraId);
     }
 
+    @Override
+    public List<Proyecto> obtenerProyectosInactivos() {
+        return proyectoRepository.findByEstadoFalse();
+    }
+
+    @Override
+    public boolean aprobarProyecto(Long id) {
+        Optional<Proyecto> optionalProyecto = proyectoRepository.findById(id);
+        if (optionalProyecto.isPresent()) {
+            Proyecto proyecto = optionalProyecto.get();
+            proyecto.setEstado(true);  // Cambia estado a true
+            proyectoRepository.save(proyecto);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean rechazarProyecto(Long id) {
+        Optional<Proyecto> optionalProyecto = proyectoRepository.findById(id);
+        if (optionalProyecto.isPresent()) {
+            proyectoRepository.deleteById(id);  // Borra el proyecto
+            return true;
+        }
+        return false;
+    }
+
+
 }

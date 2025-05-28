@@ -12,4 +12,7 @@ public interface ProyectoService {
     void eliminarProyecto(Long id);
     List<Proyecto> obtenerVideosPorEstadoTrue();
     List<ProyectoConUsuarioDTO> obtenerProyectosPorCarrera(Integer carreraId);
+    List<Proyecto> obtenerProyectosInactivos();
+    boolean aprobarProyecto(Long id);
+    boolean rechazarProyecto(Long id);
 }

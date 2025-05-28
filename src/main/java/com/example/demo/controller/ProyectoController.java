@@ -67,4 +67,26 @@ public class ProyectoController {
         return proyectoService.obtenerProyectosPorCarrera(carreraId);
     }
 
+    @GetMapping("/inactivos")
+    public List<Proyecto> listarProyectosInactivos() {
+        return proyectoService.obtenerProyectosInactivos();
+    }
+
+    @PutMapping("/aprobar/{id}")
+    public ResponseEntity<Void> aprobarProyecto(@PathVariable Long id) {
+        boolean resultado = proyectoService.aprobarProyecto(id);
+        if (resultado) {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/rechazar/{id}")
+    public ResponseEntity<Void> rechazarProyecto(@PathVariable Long id) {
+        boolean resultado = proyectoService.rechazarProyecto(id);
+        if (resultado) {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
