@@ -1,7 +1,6 @@
 package com.example.demo.services.Impl;
 
 import com.example.demo.domain.dto.MateriaDTO;
-import com.example.demo.domain.entities.Materia;
 import com.example.demo.domain.repositories.MateriaRepository;
 import com.example.demo.services.MateriaService;
 import org.springframework.stereotype.Service;

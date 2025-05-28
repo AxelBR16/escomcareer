@@ -4,14 +4,10 @@ import com.example.demo.domain.dto.ProyectoConUsuarioDTO;
 import com.example.demo.domain.dto.ProyectoDTO;
 import com.example.demo.domain.entities.Proyecto;
 import com.example.demo.services.ProyectoService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 import java.util.List;
 
-import static org.springframework.http.ResponseEntity.status;
 
 @RestController
 @RequestMapping("/proyectos")
