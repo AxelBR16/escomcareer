@@ -44,9 +44,29 @@ public class ExperienciaController {
         return experienciaService.getExperienciasPorCarrera(carreraId);
     }
 
-    @GetMapping("trabajo/{carreraId}")
+    @GetMapping("/trabajo/{carreraId}")
     public List<Trabajo> obtenerTrabajosPorCarreraEgresado(@PathVariable Long carreraId) {
         return experienciaService.getTrabajosAprobadosPorCarreraEgresado(carreraId);
+    }
+    @GetMapping("/trabajo/pendientes")
+    public ResponseEntity<List<Trabajo>> getTrabajosPendientes() {
+        List<Trabajo> trabajosPendientes = experienciaService.getTrabajosPendientes();
+        if (trabajosPendientes.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(trabajosPendientes);
+    }
+
+    @PutMapping("/trabajo/aprobar/{id}")
+    public ResponseEntity<String> aprobarTrabajo(@PathVariable Long id) {
+        experienciaService.aprobarTrabajo(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/trabajo/rechazar/{id}")
+    public ResponseEntity<String> rechazarTrabajo(@PathVariable Long id) {
+        experienciaService.rechazarTrabajo(id);
+        return ResponseEntity.ok().build();
     }
     @GetMapping("/pendientes")
     public List<Experiencia> obtenerPendientes() {

@@ -117,4 +117,26 @@ public class ExperienciaServiceImpl implements ExperienciaService {
             throw new RuntimeException("Experiencia no encontrada con id: " + id);
         }
     }
+
+    @Override
+    public List<Trabajo> getTrabajosPendientes() {
+        return trabajoRepository.findByEstadoFalse();
+    }
+
+    @Override
+    public void aprobarTrabajo(Long id) {
+        Trabajo trabajo = trabajoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Trabajo no encontrado con id: " + id));
+        trabajo.setEstado(true);
+        trabajoRepository.save(trabajo);
+    }
+
+    @Override
+    public void rechazarTrabajo(Long id) {
+        if (trabajoRepository.existsById(id)) {
+            trabajoRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Trabajo no encontrado con id: " + id);
+        }
+    }
 }

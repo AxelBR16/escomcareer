@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface TrabajoRepository extends JpaRepository<Trabajo, Long> {
     List<Trabajo> findByEstadoTrueAndEgresadoCarreraId(Long carreraId);
+    List<Trabajo> findByEstadoFalse();
 }

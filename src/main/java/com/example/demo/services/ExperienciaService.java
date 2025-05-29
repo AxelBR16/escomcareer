@@ -18,4 +18,7 @@ public interface ExperienciaService {
     List<Experiencia> getExperienciasPendientes();
     void aprobarExperiencia(Long id);
     void rechazarExperiencia(Long id);
+    List<Trabajo> getTrabajosPendientes();
+    void aprobarTrabajo(Long id);
+    void rechazarTrabajo(Long id);
 }
