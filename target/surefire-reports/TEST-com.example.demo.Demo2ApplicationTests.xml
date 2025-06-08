@@ -107,4 +107,4 @@
 2025-06-08T16:49:53.882-06:00  INFO 16584 --- [demo2] [           main] com.example.demo.Demo2ApplicationTests   : Started Demo2ApplicationTests in 13.355 seconds (process running for 14.902)
 ]]></system-out>
   </testcase>
-</testsuit
+</testsuite>
