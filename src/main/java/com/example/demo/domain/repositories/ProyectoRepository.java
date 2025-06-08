@@ -21,7 +21,8 @@ public interface ProyectoRepository extends JpaRepository<Proyecto, Long> {
             "FROM Proyecto p " +
             "JOIN p.egresado e " +
             "JOIN p.materia m " +
-            "WHERE p.carrera.id = :carreraId AND p.estado = true")
+            "JOIN m.carrera c " +
+            "WHERE c.id = :carreraId AND p.estado = true")
     List<ProyectoConUsuarioDTO> findProyectosPorCarreraConUsuario(@Param("carreraId") Integer carreraId);
     List<Proyecto> findByEstadoFalse();
 }

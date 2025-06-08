@@ -6,7 +6,7 @@ import com.example.demo.domain.entities.Proyecto;
 import java.util.List;
 
 public interface ProyectoService {
-    Proyecto guardarProyecto(Proyecto proyecto, String egresadoEmail, Long materiaId, Integer carreraId);
+    Proyecto guardarProyecto(Proyecto proyecto, String egresadoEmail, Long materiaId);
     List<Proyecto> obtenerProyectosPendientesPorUsuario(String egresadoEmail);
     List<Proyecto> obtenerTodosLosProyectosPorUsuario(String egresadoEmail);
     void eliminarProyecto(Long id);

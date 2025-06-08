@@ -34,10 +34,4 @@
         @JoinColumn(name = "materia_id")
         @JsonBackReference
         private Materia materia;
-
-        @ManyToOne
-        @JoinColumn(name = "carrera_id")
-        @JsonBackReference
-        private Carrera carrera;
-
     }

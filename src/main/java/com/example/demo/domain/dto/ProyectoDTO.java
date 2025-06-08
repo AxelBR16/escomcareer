@@ -17,6 +17,5 @@ public class ProyectoDTO {
     private int likes;
     private int dislikes;
     private String egresadoEmail;
-    private Integer carreraId;
     private Long materiaId;
 }

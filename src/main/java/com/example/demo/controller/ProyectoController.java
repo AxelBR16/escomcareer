@@ -31,8 +31,7 @@ public class ProyectoController {
         proyectoService.guardarProyecto(
                 proyecto,
                 proyectoDTO.getEgresadoEmail(),
-                proyectoDTO.getMateriaId(),
-                proyectoDTO.getCarreraId());
+                proyectoDTO.getMateriaId());
 
         return ResponseEntity.ok().build();
     }

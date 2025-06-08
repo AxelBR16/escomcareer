@@ -35,10 +35,9 @@ public class ProyectoServiceImpl implements ProyectoService {
     }
 
     @Override
-    public Proyecto guardarProyecto(Proyecto proyecto, String egresadoEmail, Long materiaId, Integer carreraId) {
+    public Proyecto guardarProyecto(Proyecto proyecto, String egresadoEmail, Long materiaId) {
         Optional<Egresado> egresadoOpt = egresadoRepository.findByEmail(egresadoEmail);
         Optional<Materia> materiaOpt = materiaRepository.findById(materiaId);
-        Optional<Carrera> carreraOpt = carreraRepository.findById(carreraId);
 
         if (!egresadoOpt.isPresent()) {
             throw new RuntimeException("Egresado no encontrado con email: " + egresadoEmail);
@@ -48,13 +47,8 @@ public class ProyectoServiceImpl implements ProyectoService {
         if (!materiaOpt.isPresent()) {
             throw new RuntimeException("Materia no encontrada con id: " + materiaId);
         }
-
-        if (!carreraOpt.isPresent()) {
-            throw new RuntimeException("Carrera no encontrada con id: " + carreraId);
-        }
         proyecto.setEgresado(egresadoOpt.get());
         proyecto.setMateria(materiaOpt.get());
-        proyecto.setCarrera(carreraOpt.get());
         proyecto.setFecha(LocalDate.now());
         proyecto.setEstado(false);
         return proyectoRepository.save(proyecto);
