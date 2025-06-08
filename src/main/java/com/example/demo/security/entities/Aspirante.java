@@ -1,6 +1,7 @@
 package com.example.demo.security.entities;
 
 import com.example.demo.domain.entities.Respuesta;
+import com.example.demo.domain.entities.ResultadoIA;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -34,5 +35,10 @@ public class Aspirante {
     @OneToMany(mappedBy = "aspirante", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Respuesta> respuestas;
+
+    @OneToMany(mappedBy = "aspirante", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<ResultadoIA> resultadosIA;
+
 
 }
