@@ -2,6 +2,7 @@ package com.example.demo.security.entities;
 
 import com.example.demo.domain.entities.Respuesta;
 import com.example.demo.domain.entities.ResultadoIA;
+import com.example.demo.domain.entities.Retroalimentacion;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -40,5 +41,7 @@ public class Aspirante {
     @JsonManagedReference
     private List<ResultadoIA> resultadosIA;
 
-
+    @OneToOne(mappedBy = "aspirante", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Retroalimentacion retroalimentacion;
 }

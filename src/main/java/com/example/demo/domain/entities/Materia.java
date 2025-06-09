@@ -1,11 +1,8 @@
 package com.example.demo.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
-import software.amazon.awssdk.services.cognitoidentityprovider.endpoints.internal.Value;
 
 import java.util.List;
 

@@ -2,8 +2,6 @@ package com.example.demo.domain.entities;
 
 import com.example.demo.security.entities.Egresado;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.GenerationType;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
