@@ -17,6 +17,8 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dt
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ProyectoDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\RespuestaDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ResultadoResumenDTO.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\RetroalimentacionDTO.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\RetroalimentacionWithAspiranteDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\TrabajoRequestDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\Carrera.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\Escala.java
@@ -40,7 +42,9 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\re
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\ProyectoRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\RespuestaRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\ResultadoRepository.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\RetroalimentacionRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\TrabajoRepository.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\exceptions\RetroalimentacionDuplicadaException.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\controller\AuthController.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\dtos\AuthResponseDto.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\dtos\ConfirmForgotPasswordDto.java
@@ -75,6 +79,7 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\Impl\PreguntaServiceImpl.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\Impl\ProyectoServiceImpl.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\Impl\RespuestaServiceImp.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\Impl\RetroalimentacionServiceImpl.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\MateriaService.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\PreguntaService.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\ProyectoService.java
