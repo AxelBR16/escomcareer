@@ -4,7 +4,7 @@ import com.example.demo.domain.dto.GuardarRespuestaDTO;
 import com.example.demo.domain.dto.RespuestaDTO;
 import com.example.demo.domain.dto.ResultadoResumenDTO;
 import com.example.demo.domain.entities.Respuesta;
-import com.example.demo.domain.entities.Resultado;
+
 
 import java.util.List;
 import java.util.Map;

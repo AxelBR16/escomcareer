@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.dto.GuardarRespuestaDTO;
-import com.example.demo.domain.dto.ObtenerRespuestasDTO;
 import com.example.demo.domain.dto.RespuestaDTO;
 import com.example.demo.domain.entities.Respuesta;
 import com.example.demo.security.dtos.ResponseMessageDto;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/respuestas")

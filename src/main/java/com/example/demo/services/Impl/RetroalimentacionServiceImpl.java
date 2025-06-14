@@ -6,13 +6,11 @@ import com.example.demo.domain.dto.RetroalimentacionWithAspiranteDTO;
 import com.example.demo.domain.entities.Retroalimentacion;
 import com.example.demo.domain.repositories.RetroalimentacionRepository;
 import com.example.demo.exceptions.RetroalimentacionDuplicadaException;
-import com.example.demo.security.dtos.ResponseMessageDto;
 import com.example.demo.security.entities.Aspirante;
 import com.example.demo.security.repositories.AspiranteRepository;
 import com.example.demo.services.RetroalimentacionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 import java.util.List;
 
