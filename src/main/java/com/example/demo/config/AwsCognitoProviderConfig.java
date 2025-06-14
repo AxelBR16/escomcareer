@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AwsCognitoProviderConfig {
     @Value(value = "AKIA2NK3X3UBEE4RM4OA")
+
+
     private String accessKeyId;
 
     @Value(value = "MfHGZGXn6JsK0DwkrYziVm4XodIK7bCp8g4kqj60")

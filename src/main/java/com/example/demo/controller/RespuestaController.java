@@ -28,6 +28,13 @@ public class RespuestaController {
         return ResponseEntity.ok(nuevaRespuesta);
     }
 
+    @PostMapping("/guardar-multiples")
+    public ResponseEntity<Void> guardarMultiplesRespuestas(@RequestBody List<GuardarRespuestaDTO> respuestasDTO) {
+        respuestaService.guardarMultiplesRespuestas(respuestasDTO);
+        return ResponseEntity.ok().build();  // Devuelve una respuesta exitosa
+    }
+
+
     @GetMapping("/obtenerPorAspiranteYInventario/{email}/{inventario}")
     public ResponseEntity<?> obtenerPorAspiranteYInventario(
             @PathVariable String email,

@@ -19,4 +19,5 @@ public interface RespuestaService {
     void calcularYGuardarResultadosParaTodasLasEscalas(String email);
     void calcularYGuardarResultadoPorInventario(String emailAspirante, String inventario);
     List<ResultadoResumenDTO> obtenerResumenResultadosPorCorreo(String email);
+    void guardarMultiplesRespuestas(List<GuardarRespuestaDTO> respuestasDTO);
 }

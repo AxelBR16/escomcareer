@@ -5,6 +5,8 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\controlle
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\ProyectoController.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\RespuestaController.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\ResultadoController.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\ResultadoIAController.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\controller\RetroalimentacionController.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\Demo2Application.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ExperienciaRequestDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ExperienciaResponseDTO.java
@@ -26,6 +28,8 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\en
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\Proyecto.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\Respuesta.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\Resultado.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\ResultadoIA.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\Retroalimentacion.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\entities\Trabajo.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\CarreraRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\EscalaRepository.java
@@ -38,7 +42,6 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\re
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\ResultadoRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\TrabajoRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\controller\AuthController.java
-C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\controller\MessageController.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\dtos\AuthResponseDto.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\dtos\ConfirmForgotPasswordDto.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\security\dtos\ForgotPasswordDto.java
@@ -76,3 +79,5 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\PreguntaService.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\ProyectoService.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\RespuestaService.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\ResultadosService.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\services\RetroalimentacionService.java

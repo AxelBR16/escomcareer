@@ -68,6 +68,35 @@ public class RespuestaServiceImp implements RespuestaService {
     }
 
     @Override
+    public void guardarMultiplesRespuestas(List<GuardarRespuestaDTO> respuestasDTO) {
+        for (GuardarRespuestaDTO dto : respuestasDTO) {
+            if (dto.getEmailAspirante() == null || dto.getEmailAspirante().isEmpty()) {
+                throw new RuntimeException("El email del aspirante es nulo o vacío");
+            }
+            Pregunta pregunta = preguntaRepository.findById(dto.getId_Pregunta())
+                    .orElseThrow(() -> new RuntimeException("Pregunta no encontrada"));
+
+            Aspirante aspirante = aspiranteRepository.findByEmail(dto.getEmailAspirante())
+                    .orElseThrow(() -> new RuntimeException("Aspirante no encontrado"));
+
+            Optional<Respuesta> respuestaExistente = respuestaRepository.findByPreguntaAndAspirante(pregunta, aspirante);
+
+            Respuesta respuesta;
+            if (respuestaExistente.isPresent()) {
+                respuesta = respuestaExistente.get();
+                respuesta.setValor(dto.getValor());
+            } else {
+                respuesta = new Respuesta();
+                respuesta.setPregunta(pregunta);
+                respuesta.setAspirante(aspirante);
+                respuesta.setValor(dto.getValor());
+            }
+
+            respuestaRepository.save(respuesta);
+        }
+    }
+
+    @Override
     public List<Respuesta> obtenerRespuestasPorAspirante(String emailAspirante) {
         Aspirante aspirante = aspiranteRepository.findByEmail(emailAspirante)
                 .orElseThrow(() -> new RuntimeException("Aspirante no encontrado"));
