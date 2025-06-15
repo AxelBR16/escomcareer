@@ -25,4 +25,8 @@ public class ResultadoIA {
     @JsonBackReference
     private Carrera carrera;
 
+    @ManyToOne
+    @JoinColumn(name = "inventario_id", nullable = false)
+    @JsonBackReference
+    private Inventario inventario;
 }
