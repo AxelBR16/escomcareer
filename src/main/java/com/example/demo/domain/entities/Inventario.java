@@ -23,4 +23,6 @@ public class Inventario {
     @JsonManagedReference
     private List<Pregunta> preguntas;
 
+
+
 }
