@@ -16,6 +16,8 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dt
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ProyectoConUsuarioDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ProyectoDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\RespuestaDTO.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ResultadoIADTO.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ResultadoIARespuestaDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\ResultadoResumenDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\RetroalimentacionDTO.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\dto\RetroalimentacionWithAspiranteDTO.java
@@ -37,6 +39,7 @@ C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\re
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\EscalaRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\ExperienciaRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\HabilidadesRepository.java
+C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\InventarioRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\MateriaRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\PreguntaRepository.java
 C:\Users\berna\IdeaProjects\escomcareer\src\main\java\com\example\demo\domain\repositories\ProyectoRepository.java
