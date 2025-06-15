@@ -19,10 +19,7 @@ public class Inventario {
     @Column(nullable = false)
     private String descripcion;
 
-    @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Pregunta> preguntas;
-
-
-
+    private List<ResultadoIA> resultadosIA;
 }

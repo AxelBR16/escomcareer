@@ -33,7 +33,4 @@ public class ResultadoIA {
     @JsonBackReference
     private Inventario inventario;
 
-    @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<ResultadoIA> resultadosIA;
 }
