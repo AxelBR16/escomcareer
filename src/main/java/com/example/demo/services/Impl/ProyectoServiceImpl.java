@@ -105,5 +105,19 @@ public class ProyectoServiceImpl implements ProyectoService {
         return false;
     }
 
+    @Override
+    public Proyecto votar(Long id, String tipo) {
+        Proyecto proyecto = proyectoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Proyecto no encontrado con id: " + id));
 
+        if ("like".equalsIgnoreCase(tipo)) {
+            proyecto.setLikes(proyecto.getLikes() + 1);
+        } else if ("dislike".equalsIgnoreCase(tipo)) {
+            proyecto.setDislikes(proyecto.getDislikes() + 1);
+        } else {
+            throw new IllegalArgumentException("Tipo de voto no válido: " + tipo);
+        }
+
+        return proyectoRepository.save(proyecto);
+    }
 }

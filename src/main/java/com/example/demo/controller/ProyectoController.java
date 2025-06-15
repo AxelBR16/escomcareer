@@ -84,4 +84,9 @@ public class ProyectoController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @PostMapping("/{id}/votar")
+    public Proyecto votarProyecto(@PathVariable Long id, @RequestParam String tipo) {
+        return proyectoService.votar(id, tipo);
+    }
 }

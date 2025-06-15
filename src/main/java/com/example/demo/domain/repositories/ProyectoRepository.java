@@ -25,4 +25,6 @@ public interface ProyectoRepository extends JpaRepository<Proyecto, Long> {
             "WHERE c.id = :carreraId AND p.estado = true")
     List<ProyectoConUsuarioDTO> findProyectosPorCarreraConUsuario(@Param("carreraId") Integer carreraId);
     List<Proyecto> findByEstadoFalse();
+
+
 }

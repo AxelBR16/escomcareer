@@ -15,4 +15,5 @@ public interface ProyectoService {
     List<Proyecto> obtenerProyectosInactivos();
     boolean aprobarProyecto(Long id);
     boolean rechazarProyecto(Long id);
+    Proyecto votar(Long id, String tipo);
 }
