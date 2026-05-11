@@ -8,15 +8,15 @@ El sistema evalúa **aptitudes, intereses y preferencias** mediante pruebas inte
 ---
 
 ## Tecnologías
-- ☕ **Java** + **Spring Boot** para el desarrollo del backend.  
-- 🌐 **APIs REST** para comunicación con la aplicación web y móvil.  
-- ☁ **Servicios de AWS** para almacenamiento y despliegue.  
-- 📝 Desarrollado **desde cero**, documentando y diagramando todas las etapas del ciclo de vida del software.  
-- 📅 Uso de la **metodología ágil Scrum** para un desarrollo iterativo y eficiente.  
+-  **Java** + **Spring Boot** para el desarrollo del backend.  
+-  **APIs REST** para comunicación con la aplicación web y móvil.  
+-  **Servicios de AWS** para almacenamiento y despliegue.  
+- Desarrollado **desde cero**, documentando y diagramando todas las etapas del ciclo de vida del software.  
+- Uso de la **metodología ágil Scrum** para un desarrollo iterativo y eficiente.  
 
 ---
 
-## 📌 Autores  
+##  Autores  
 **Axel Bernal**
 **Yael Bastida**
 **Jaciel Ramírez**
